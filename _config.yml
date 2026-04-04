@@ -1,6 +1,4 @@
-remote_theme: pages-themes/cayman@v0.2.0
+theme: jekyll-theme-cayman
 title: DiscordOps for Unreal
 description: Blueprint-first QA and bug reporting plugin documentation for Unreal Engine
-plugins:
-  - jekyll-remote-theme
 markdown: kramdown
