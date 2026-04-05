@@ -1,44 +1,44 @@
 # Blueprint Workflow
 
-## Flujo recomendado para Bug Report
+## Recommended Bug Report Flow
 
-1. Recolecta titulo y descripcion desde tu UI o herramienta de debug.
-2. Usa `Build Template Report Request` si quieres arrancar desde `Gameplay Bug`, `Visual Bug` o `Crash`.
-3. Llena tags, severidad y categoria.
-4. Elige `DestinationPreset` para `Bugs`, `QA`, `Community Support` o `Internal Testing`.
-5. Decide si adjuntar screenshot.
-6. Decide si adjuntar log snippet.
-7. Agrega `CustomFields` para branch, ticket, tester o hardware.
-8. Llama `Send Bug Report`.
-9. En `OnSuccess` muestra confirmacion al usuario/tester.
-10. En `OnFailure` muestra mensaje entendible y registra warnings.
+1. Collect the title and description from your UI or debug tool.
+2. Use `Build Template Report Request` if you want to start from `Gameplay Bug`, `Visual Bug`, or `Crash`.
+3. Fill in tags, severity, and category.
+4. Choose a `DestinationPreset` such as `Bugs`, `QA`, `Community Support`, or `Internal Testing`.
+5. Decide whether to attach a screenshot.
+6. Decide whether to attach a log snippet.
+7. Add `CustomFields` for branch, ticket, tester, or hardware details.
+8. Call `Send Bug Report`.
+9. In `OnSuccess`, show a confirmation to the user or tester.
+10. In `OnFailure`, show a readable error message and log any warnings.
 
-## Flujo recomendado para QA Report
+## Recommended QA Report Flow
 
-1. Recolecta resumen de la sesion.
-2. Agrega contexto adicional:
+1. Collect a session summary.
+2. Add extra context:
    - feature area
    - build label
    - tester
-   - branch o ticket
-3. Decide si quieres `QA Pass` o `QA Fail`.
-4. Usa `CustomFields` para casos de prueba, branch, milestone o plataforma.
-5. Activa `bCreateThread` si quieres seguimiento automatico en `bot mode`.
-6. Llama `Send QA Report`.
-7. Usa `Capture And Send Screenshot` cuando quieras priorizar evidencia visual.
-8. Usa `Send Output Log Snippet` para errores rapidos sin crear un flujo extra.
+   - branch or ticket
+3. Decide whether this is `QA Pass` or `QA Fail`.
+4. Use `CustomFields` for test cases, branch, milestone, or platform.
+5. Enable `bCreateThread` if you want automatic follow-up in `bot mode`.
+6. Call `Send QA Report`.
+7. Use `Capture And Send Screenshot` when visual evidence matters most.
+8. Use `Send Output Log Snippet` for quick errors without creating a separate flow.
 
-## Widget runtime reusable
+## Reusable Runtime Widget
 
-El plugin ya incluye `UDiscordOpsRuntimeReportWidget` para meter el flujo en cualquier juego sin escribir una UI desde cero.
+The plugin already includes `UDiscordOpsRuntimeReportWidget` so you can drop reporting into any game without building a UI from scratch.
 
-Uso recomendado:
+Recommended usage:
 
-1. Crea el widget desde tu `PlayerController`, HUD o menu debug.
-2. Deja visibles `Validate Setup`, `Live Validate`, `Send Demo Report`, `Send Bug Report`, `Send QA Report`, `Capture Screenshot`, `Send Log Snippet` y `Replay Last`.
-3. Usa ese widget para demos, builds internas o soporte QA.
+1. Create the widget from your `PlayerController`, HUD, or debug menu.
+2. Expose `Validate Setup`, `Live Validate`, `Send Demo Report`, `Send Bug Report`, `Send QA Report`, `Capture Screenshot`, `Send Log Snippet`, and `Replay Last`.
+3. Use that widget for demos, internal builds, or QA support.
 
-## Nodos publicos del v1
+## Public v1 Nodes
 
 - `Validate Discord Setup`
 - `Get DiscordOps Status`

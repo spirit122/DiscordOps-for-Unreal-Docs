@@ -1,42 +1,42 @@
 # Packaging Checklist
 
-## Que aprendimos del material de referencia de Fab
+## What We Took from the Fab Reference Material
 
-El material de referencia usado para esta revision sirve para dos cosas:
+The reference material used during this review was useful for two things:
 
-- automatizar tareas del portal de publicacion
-- documentar limites practicos del listing y la estructura del zip
+- automating parts of the publisher workflow
+- documenting practical limits for the listing and the final zip structure
 
-No debe copiarse dentro del plugin Unreal que compra el cliente. Eso incluye:
+It should not be copied into the Unreal plugin that customers receive. That includes:
 
 - `.claude-plugin/`
 - `commands/`
 - `skills/`
-- snippets internos del portal
-- automatizaciones especificas de un publisher
+- internal publisher snippets
+- portal-specific automation files
 
-Ese material sirve como herramienta interna del vendedor, no como parte del producto final.
+That material is useful for the seller, not as part of the final product.
 
-## Estructura del zip para Fab
+## Zip Structure for Fab
 
-El zip final debe contener una sola carpeta raiz del plugin:
+The final zip should contain a single plugin root folder:
 
 ```text
 DiscordOps_v1.0.0_Fab_Win64.zip
 \-- DiscordOps/
     +-- DiscordOps.uplugin
     +-- Config/
-    +-- Content/        (solo si existe)
-    +-- Resources/      (solo si existe)
-    +-- Shaders/        (solo si existe)
+    +-- Content/        (only if it exists)
+    +-- Resources/      (only if it exists)
+    +-- Shaders/        (only if it exists)
     \-- Source/
 ```
 
-El script [Build-FabPackage.ps1](../Scripts/Build-FabPackage.ps1) ya sigue esta regla y crea una fuente limpia antes de llamar a `BuildPlugin`.
+The packaging workflow already follows this rule and builds from a clean plugin source before running the final package step.
 
-## Excluir del zip final
+## Exclude from the Final Zip
 
-No deben entrar al package de Fab:
+These items should not be included in the Fab package:
 
 - `Binaries/`
 - `Intermediate/`
@@ -47,39 +47,39 @@ No deben entrar al package de Fab:
 - `README.md`
 - `Docs/`
 - `Scripts/`
-- cualquier carpeta ajena al plugin en la raiz del workspace
+- any unrelated folder at the root of the workspace
 
-## Antes de publicar
+## Before Publishing
 
-- Verificar build del plugin con `RunUAT BuildPlugin`.
-- Hacer una compilacion de proyecto real con el plugin instalado.
-- Crear proyecto demo y map de ejemplo con flujo de bug report.
-- Capturar media gallery real mostrando:
-  - validacion de setup
-  - envio de test report
-  - reporte con screenshot
-  - reporte con output log
-- Revisar textos del Fab listing:
-  - valor principal QA + bug reporting
-  - webhook first
+- Verify the plugin build with `RunUAT BuildPlugin`.
+- Compile a real project with the plugin installed.
+- Create a demo project and an example map with the bug reporting flow.
+- Capture real listing media showing:
+  - setup validation
+  - sending a test report
+  - a report with a screenshot
+  - a report with output log
+- Review the Fab listing text:
+  - main value: QA + bug reporting
+  - webhook-first
   - editor + runtime
   - Blueprint-first
-- Incluir screenshots de Project Settings, Blueprint nodes y panel editor.
+- Include screenshots of Project Settings, Blueprint nodes, and the editor panel.
 
-## Limites utiles del listing
+## Useful Listing Limits
 
-Estos limites salen del material de referencia del portal y son utiles para preparar contenido sin pasarse del flujo de publicacion:
+These limits are practical constraints worth remembering while preparing the final listing:
 
-- titulo: `80` caracteres
-- descripcion: `10,000` caracteres HTML
-- technical details: `1,900` caracteres HTML
+- title: `80` characters
+- description: `10,000` HTML characters
+- technical details: `1,900` HTML characters
 - tags: `25`
 - changelog: `2,000`
-- FAQ: `20` entradas
-- imagenes de media: `1920x1080`, `jpg/jpeg/png`, menos de `3 MB`
+- FAQ: `20` entries
+- media images: `1920x1080`, `jpg/jpeg/png`, under `3 MB`
 
-## Limitaciones de esta base fuente
+## Current Source Limitations
 
-- No incluye assets `.uasset` ni demo map generado desde Unreal Editor.
-- La media del listing debe capturarse despues de compilar e instalar el plugin en un proyecto de ejemplo.
-- El package de Fab debe ser solo el plugin; la documentacion comercial y el material de produccion viven fuera del zip.
+- This public documentation package does not include `.uasset` files or a demo map created in Unreal Editor.
+- Listing media must be captured after compiling and installing the plugin in a real example project.
+- The Fab package should contain only the plugin; documentation and production material should stay outside the customer zip.

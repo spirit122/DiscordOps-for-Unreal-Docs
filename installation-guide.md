@@ -1,48 +1,48 @@
 # Installation Guide
 
-## Win64-first release target
+## Win64-First Release Target
 
-Esta version de `DiscordOps for Unreal` esta validada en `UE 5.7` para `Win64`.
+This version of `DiscordOps for Unreal` is validated for `UE 5.7` on `Win64`.
 
-## Instalar como plugin de proyecto
+## Install as a Project Plugin
 
-1. Cierra Unreal Editor.
-2. Copia la carpeta `DiscordOps` dentro de `YourProject/Plugins/DiscordOps`.
-3. Abre el `.uproject`.
-4. Si Unreal lo solicita, permite compilar el plugin.
-5. Verifica que aparezcan:
+1. Close Unreal Editor.
+2. Copy the `DiscordOps` folder into `YourProject/Plugins/DiscordOps`.
+3. Open the `.uproject`.
+4. If Unreal asks to build the plugin, allow it.
+5. Confirm that these entries appear:
    - `Edit > Project Settings > Plugins > DiscordOps`
-   - `Window > DiscordOps` dentro del editor
+   - `Window > DiscordOps`
 
-## Configuracion minima para v1
+## Minimum v1 Configuration
 
-1. Abre `Project Settings > Plugins > DiscordOps`.
-2. Pega un `Webhook URL` de Discord.
-3. Ajusta `Default Channel Label` si quieres un nombre logico para el destino.
-4. Deja activados:
+1. Open `Project Settings > Plugins > DiscordOps`.
+2. Paste a valid Discord `Webhook URL`.
+3. Adjust `Default Channel Label` if you want a friendlier destination name.
+4. Leave these enabled:
    - `Enable Screenshot Capture`
    - `Enable Log Attachment`
    - `Include Project Metadata`
    - `Enable Runtime Reports`
    - `Enable Editor Reports`
-5. Guarda los settings.
-6. Abre el panel `Window > DiscordOps`.
-7. Ejecuta `Validate Setup`.
-8. Ejecuta `Send Test Report`.
+5. Save the settings.
+6. Open `Window > DiscordOps`.
+7. Run `Validate Setup`.
+8. Run `Send Test Report`.
 
-## Bot mode
+## Bot Mode
 
-`Bot mode` es opcional en v1.0.
+`Bot mode` is optional in v1.
 
-Configuralo solo si necesitas validar el camino equivalente al webhook:
+Configure it only if you need to validate the equivalent delivery path:
 
-1. Activa `Enable Bot Mode`.
-2. Completa `Bot Token`.
-3. Completa `Bot Channel ID`.
-4. Completa `Bot Guild ID` si tu flujo interno lo requiere.
-5. Ejecuta `Validate Setup`.
+1. Enable `Enable Bot Mode`.
+2. Fill in `Bot Token`.
+3. Fill in `Bot Channel ID`.
+4. Fill in `Bot Guild ID` if your internal workflow needs it.
+5. Run `Validate Setup`.
 
-## Seguridad
+## Security
 
-- No commitees `Webhook URL`, `Bot Token` ni IDs sensibles en archivos versionados.
-- Para demos internas, usa overrides locales no trackeados o configura credenciales directamente desde el editor.
+- Do not commit `Webhook URL`, `Bot Token`, or sensitive IDs in versioned files.
+- For internal demos, use untracked local overrides or configure credentials directly from the editor.

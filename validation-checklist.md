@@ -4,19 +4,19 @@
 
 - `Validate Discord Setup` returns valid for a real webhook
 - `Validate Discord Setup` returns invalid for empty config
-- invalid webhook path returns clear failure without crash
-- invalid default webhook does not fake a valid route anymore
+- an invalid webhook path returns a clear failure without crashing
+- an invalid default webhook no longer fakes a valid route
 - `Send Discord Message` posts successfully
 - `Send Bug Report` works with text only
-- `Send QA Report` works with text + metadata
+- `Send QA Report` works with text and metadata
 - `Capture And Send Screenshot` sends image evidence when a real viewport exists
-- `Send Output Log Snippet` sends readable log preview and attachment
+- `Send Output Log Snippet` sends a readable log preview and attachment
 - preset-specific webhook routes work without a default webhook
 - `Replay Last` resends the latest report
-- `Live Validate` reports useful messages like `Unknown Webhook` and missing permissions
-- runtime packaged Win64 build can send a report
+- `Live Validate` reports useful messages such as `Unknown Webhook` and missing permissions
+- a packaged Win64 runtime build can send a report
 
-## Automated validation currently covered in the local demo harness
+## Automated Validation Currently Covered in the Local Demo Harness
 
 - `Validate Setup (Valid Webhook)`
 - `Send Discord Message`
@@ -34,7 +34,7 @@
 - `Replay Recent History (Last Report)`
 - `DiscordOpsDemo.RunViewportValidation` for packaged or standalone viewport proof
 
-## Manual and semi-manual launch helpers
+## Manual and Semi-Manual Launch Helpers
 
 - `DiscordOpsDemo.SendLiveValidation`
 - `DiscordOpsDemo.RunDeepValidation`
@@ -43,7 +43,7 @@
 
 ## Commercial
 
-- README included in plugin package
+- README included in the plugin package
 - installation guide included
 - quick start included
 - settings reference included
@@ -53,6 +53,6 @@
 
 ## Launch Gating
 
-- If Mac/Linux are not validated with real smoke tests, do not claim them as released support in the Fab listing.
+- If Mac or Linux have not been validated with real smoke tests, do not claim them as supported in the Fab listing.
 - Do not publish with real webhook or bot credentials inside the package.
-- Before Fab launch, capture one real screenshot from `PIE` or `packaged runtime` with a PNG attachment visible in Discord.
+- Before Fab launch, capture one real screenshot from `PIE` or `packaged runtime` with a visible PNG attachment in Discord.

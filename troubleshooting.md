@@ -1,92 +1,92 @@
 # Troubleshooting
 
-## `Validate Discord Setup` marca invalido
+## `Validate Discord Setup` returns invalid
 
-Revisa:
+Check for:
 
-- `Webhook URL` vacio
-- URL que no apunta a `discord.com/api/webhooks/...`
-- destino por preset sin webhook valido y sin fallback por defecto
-- `Bot Token` vacio con `Enable Bot Mode` activo
-- `Bot Channel ID` vacio o no numerico
-- runtime y editor reports ambos desactivados
+- an empty `Webhook URL`
+- a URL that does not point to `discord.com/api/webhooks/...`
+- a preset destination with no valid webhook and no default fallback
+- an empty `Bot Token` while `Enable Bot Mode` is enabled
+- an empty or non-numeric `Bot Channel ID`
+- both runtime and editor reports being disabled
 
-## `Live Validate` responde con error claro
+## `Live Validate` returns a clear error
 
-Mensajes comunes:
+Common messages:
 
-- `Unknown Webhook`: el webhook fue borrado, la URL esta rota o apunta a un destino viejo.
-- `Bot is missing access or permissions`: el bot existe, pero no puede escribir en ese canal.
-- `Bot token is invalid`: el token no sirve o esta incompleto.
-- `Discord validation failed before a response was received`: problema de red local o Discord no respondio.
-- `rate-limited`: Discord respondio, pero aplico rate limit a la validacion.
+- `Unknown Webhook`: the webhook was deleted, the URL is broken, or it points to an old destination.
+- `Bot is missing access or permissions`: the bot exists, but it cannot post in that channel.
+- `Bot token is invalid`: the token is wrong or incomplete.
+- `Discord validation failed before a response was received`: local network issue or no reply from Discord.
+- `rate-limited`: Discord replied, but the request hit a rate limit.
 
-## El screenshot no se adjunta
+## The screenshot is not attached
 
-Posibles causas:
+Possible causes:
 
-- no hay `GameViewport` activo
-- el proyecto esta en un contexto sin captura disponible, como `Editor-Cmd`
-- fallo al serializar PNG
+- there is no active `GameViewport`
+- the project is running in a context without capture support, such as `Editor-Cmd`
+- PNG serialization failed
 
-Comportamiento esperado del plugin:
+Expected plugin behavior:
 
-- el reporte sigue enviandose
-- devuelve warning claro
-- `PIE`, `Standalone` y `packaged runtime` son los mejores contextos para validar la imagen real.
+- the report is still sent
+- a clear warning is returned
+- `PIE`, `Standalone`, and `packaged runtime` are the best contexts for validating a real image attachment
 
-## Runtime sin editor
+## Runtime without the editor
 
-El flujo base no depende del editor.
+The base workflow does not depend on the editor.
 
-Si un build runtime no envia:
+If a runtime build does not send reports:
 
-- confirma `Enable Runtime Reports`
-- confirma conectividad de red
-- confirma que el webhook es valido
+- confirm `Enable Runtime Reports`
+- confirm network connectivity
+- confirm that the webhook is valid
 
-## Error HTTP de Discord
+## Discord HTTP error
 
-Casos comunes:
+Common cases:
 
-- `401/403`: token o permisos invalidos en bot mode
-- `404`: webhook borrado o URL incorrecta
+- `401/403`: invalid token or missing permissions in bot mode
+- `404`: deleted webhook or incorrect URL
 - `429`: rate limit
-- `5xx`: Discord respondio, pero con error del lado del servicio
+- `5xx`: Discord responded with a service-side error
 
-El plugin no debe crashear y debe devolver mensaje entendible.
+The plugin should not crash and should return a readable error message.
 
-## Threads no se crean
+## Threads are not created
 
-Revisa:
+Check:
 
-- `bCreateThread` activo en el request
-- `Enable Bot Mode` activo
-- token y canal validos
-- permisos del bot para crear thread
+- `bCreateThread` is enabled in the request
+- `Enable Bot Mode` is enabled
+- token and channel are valid
+- the bot has permission to create threads
 
-En `webhook mode` el reporte se envia igual, pero DiscordOps devuelve un warning porque el follow-up thread requiere `bot mode`.
+In `webhook mode`, the report is still sent, but DiscordOps returns a warning because follow-up threads require `bot mode`.
 
-## El reporte va al canal incorrecto
+## The report goes to the wrong channel
 
-Revisa:
+Check:
 
-- `DestinationPreset` del request
-- webhook o bot channel dedicado para ese preset
-- fallback al `Webhook URL` por defecto si el preset no tiene override valido
-- `Webhook Quick Setup` del panel, porque ahora guarda por preset
+- the request `DestinationPreset`
+- the dedicated webhook or bot channel for that preset
+- fallback to the default `Webhook URL` when the preset has no valid override
+- `Webhook Quick Setup`, because it now stores data per preset
 
-## Ensure o crash marker no llegan
+## Ensure or crash marker reports do not arrive
 
-Revisa:
+Check:
 
 - `bEnableEnsureReports`
 - `bEnableCrashMarkerReports`
 - `bAutoSendPendingCrashReportsOnStartup`
-- conectividad al arrancar, porque el crash marker se reintenta al siguiente inicio
+- startup connectivity, because crash markers retry on the next launch
 
-## Credenciales sensibles
+## Sensitive credentials
 
-- no guardes secretos en archivos versionados
-- usa configuracion local no trackeada para demos y pruebas internas
-- si empaquetas el proyecto demo, inyecta el `.local.ini` solo en la copia de prueba, no en el package publico
+- do not store secrets in versioned files
+- use untracked local configuration for demos and internal testing
+- if you package a demo project, inject the `.local.ini` only into the private test copy, not into the public package

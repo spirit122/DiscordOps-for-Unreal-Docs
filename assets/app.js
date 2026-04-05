@@ -14,135 +14,77 @@ const docsManifest = [
   {
     id: "quick-start",
     label: "Quick Start",
-    eyebrow: "Start Fast",
-    title: "Ship the first test report in minutes",
-    description: "The shortest path from install to a real Discord post. Ideal for buyers who want value immediately after installing the plugin.",
+    summary: "Go from install to your first real Discord report in minutes.",
     file: "quick-start-webhook.md"
   },
   {
     id: "installation",
     label: "Installation",
-    eyebrow: "Setup",
-    title: "Drop-in Unreal plugin install flow",
-    description: "Project plugin installation, minimal configuration, bot-mode notes, and security guidance for local secrets.",
+    summary: "Project plugin install, minimum setup, and local secret handling.",
     file: "installation-guide.md"
   },
   {
     id: "settings",
     label: "Settings",
-    eyebrow: "Reference",
-    title: "Every shipping setting in one place",
-    description: "Transport, destinations, privacy, crash automation, and runtime/editor settings with defaults and recommended usage.",
+    summary: "Transport, destinations, privacy, automation, and runtime settings.",
     file: "settings-reference.md"
   },
   {
     id: "blueprint",
     label: "Blueprint Workflow",
-    eyebrow: "Blueprint",
-    title: "Use it without building your own UI first",
-    description: "Recommended report flows, reusable runtime widget guidance, and the public node surface for the v1 release.",
+    summary: "Recommended reporting flows and the public node surface.",
     file: "blueprint-workflow.md"
   },
   {
     id: "troubleshooting",
     label: "Troubleshooting",
-    eyebrow: "Support",
-    title: "Clear fixes for the most common setup issues",
-    description: "Invalid webhooks, missing permissions, screenshot limitations, thread requirements, and runtime troubleshooting.",
+    summary: "Fix common validation, permissions, screenshot, and routing issues.",
     file: "troubleshooting.md"
   },
   {
     id: "validation",
     label: "Validation",
-    eyebrow: "QA",
-    title: "Launch checklist and validation matrix",
-    description: "Technical coverage, manual launch helpers, commercial checks, and final Fab launch gating.",
+    summary: "Use the launch checklist and validation matrix before publishing.",
     file: "validation-checklist.md"
   },
   {
     id: "packaging",
     label: "Packaging",
-    eyebrow: "Fab Ready",
-    title: "Package it cleanly for review",
-    description: "What belongs in the final zip, what stays out, and the practical limits that matter while preparing your listing.",
+    summary: "Prepare a clean plugin zip that fits Fab expectations.",
     file: "packaging-checklist.md"
   }
 ];
 
-const overviewCards = [
+const summaryCards = [
   {
-    title: "Editor + Runtime",
-    value: "One workflow, both contexts",
-    body: "Validate, preview, and send reports from the editor or from a live build without depending on editor-only features."
+    title: "Fast setup",
+    body: "The docs are organized around the shortest path to a working webhook-based reporting flow."
   },
   {
-    title: "Webhook-First",
-    value: "Fastest path to value",
-    body: "Most teams can go from install to first Discord message in minutes, with bot mode left as an optional advanced path."
+    title: "Clear launch path",
+    body: "Validation, packaging, and troubleshooting sections are written for real release work, not vague theory."
   },
   {
-    title: "Launch-Ready QA",
-    value: "Templates, destinations, history",
-    body: "Preset routing, report templates, live validation, replay, metadata, logs, screenshots, and report IDs are already built in."
-  },
-  {
-    title: "Fab-Focused",
-    value: "Win64 validated release",
-    body: "The current launch shape is optimized for a clean, believable Fab listing instead of a bloated pre-roadmap promise set."
+    title: "Public docs only",
+    body: "This site stays shareable while the actual plugin code remains private and protected."
   }
 ];
 
-const featureCards = [
+const routeSteps = [
   {
-    tag: "Why teams buy it",
-    title: "Discord becomes a real QA intake surface",
-    body: "Reports arrive with evidence, context, routing, and cleaner formatting instead of loose chat messages that lose signal."
+    step: "Start",
+    title: "Quick Start",
+    body: "Use this if you want a fast proof that DiscordOps is working."
   },
   {
-    tag: "Why setup feels light",
-    title: "A guided path instead of a code-first integration",
-    body: "Quick setup, validation tools, templates, and preset destinations keep the first-use experience approachable for non-programmers."
+    step: "Build",
+    title: "Settings + Blueprint",
+    body: "Go deeper when you need routing, templates, automation, or a reusable reporting flow."
   },
   {
-    tag: "Why the docs matter",
-    title: "This site mirrors the actual release workflow",
-    body: "Install, validate, route, ship. Every section here is organized around the exact flow that gets the plugin working in a real project."
-  }
-];
-
-const workflowSteps = [
-  {
-    step: "01",
-    title: "Install the plugin",
-    body: "Drop DiscordOps into your project's Plugins folder and open the .uproject."
-  },
-  {
-    step: "02",
-    title: "Configure a real webhook",
-    body: "Use Project Settings and the editor panel quick setup to store a local webhook without digging through code."
-  },
-  {
-    step: "03",
-    title: "Validate before you trust it",
-    body: "Run Validate Setup and Live Validate to confirm formatting, reachability, and permission errors before QA depends on it."
-  },
-  {
-    step: "04",
-    title: "Send reports with evidence",
-    body: "Push bug reports, QA reports, log snippets, screenshots, report IDs, and metadata straight to Discord."
-  }
-];
-
-const footerLinks = [
-  {
-    label: "Jump to Quick Start",
-    href: "#quick-start",
-    kind: "primary"
-  },
-  {
-    label: "Open Troubleshooting",
-    href: "#troubleshooting",
-    kind: "ghost"
+    step: "Launch",
+    title: "Validation + Packaging",
+    body: "Use these sections before a Fab submission or an internal release handoff."
   }
 ];
 
@@ -192,8 +134,8 @@ function useActiveSection(sectionIds) {
         }
       },
       {
-        rootMargin: "-24% 0px -52% 0px",
-        threshold: [0.15, 0.32, 0.5, 0.72]
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: [0.15, 0.3, 0.5, 0.7]
       }
     );
 
@@ -214,15 +156,15 @@ function MarkdownSection({ doc, content, loading, error }) {
   }, [content]);
 
   return html`
-    <section id=${doc.id} className="section-block">
-      <div className="section-block__header">
-        <span className="eyebrow">${doc.eyebrow}</span>
-        <h2>${doc.title}</h2>
-        <p>${doc.description}</p>
+    <section id=${doc.id} className="doc-section">
+      <div className="doc-section__intro">
+        <span className="section-kicker">${doc.label}</span>
+        <h2>${doc.label}</h2>
+        <p>${doc.summary}</p>
       </div>
-      <div className="section-block__body">
-        ${loading && html`<div className="loading-state">Loading ${doc.label}...</div>`}
-        ${error && html`<div className="error-state">Could not load ${doc.label}: ${error}</div>`}
+      <div className="doc-section__body">
+        ${loading && html`<div className="message-box">Loading ${doc.label}...</div>`}
+        ${error && html`<div className="message-box message-box--error">Could not load ${doc.label}: ${error}</div>`}
         ${!loading &&
         !error &&
         html`<div className="doc-body" dangerouslySetInnerHTML=${{ __html: rendered }}></div>`}
@@ -231,52 +173,64 @@ function MarkdownSection({ doc, content, loading, error }) {
   `;
 }
 
-function OverviewSection() {
+function HeroSection() {
   return html`
     <section id="overview" className="hero">
-      <div className="hero__grid">
-        <div className="hero__copy">
-          <span className="eyebrow">DiscordOps Docs</span>
-          <h1 className="hero__title">
-            Build faster QA flows.
-            <span>Ship cleaner Discord reporting.</span>
-          </h1>
-          <p className="hero__lead">
-            This documentation site is built to feel like the product itself: bold, direct, and fast to use. Get from installation to a real Discord report without hunting through flat pages or weak navigation.
-          </p>
-          <div className="hero__pills">
-            <span className="hero__pill">Blueprint-first setup</span>
-            <span className="hero__pill">Editor + Runtime</span>
-            <span className="hero__pill">Webhook-first launch path</span>
-            <span className="hero__pill">Fab-ready packaging guidance</span>
-          </div>
-          <div className="hero__actions">
-            <a className="primary-button" href="#quick-start">Open Quick Start</a>
-            <a className="ghost-button" href="#validation">See launch checks</a>
-          </div>
-          <div className="status-strip">
-            <span className="status-pill">Win64 launch path documented</span>
-            <span className="status-pill">Sidebar navigation always visible</span>
-            <span className="status-pill">React-driven single-page docs</span>
-          </div>
-        </div>
-        <div className="hero__panel">
-          <h2>Documentation workflow</h2>
-          <p>The idea is simple: the page should help someone get value quickly, then stay useful when they need deeper settings, validation, or launch guidance.</p>
-          <div className="hero__list">
-            ${workflowSteps.map(
-              (item) => html`
-                <div key=${item.step} className="hero__list-item">
-                  <span className="hero__list-step">${item.step}</span>
-                  <div className="hero__list-copy">
-                    <strong>${item.title}</strong>
-                    <span>${item.body}</span>
-                  </div>
-                </div>
-              `
-            )}
-          </div>
-        </div>
+      <span className="hero__eyebrow">DiscordOps Documentation</span>
+      <h1>
+        Cleaner docs for a faster
+        <span>Discord QA workflow.</span>
+      </h1>
+      <p className="hero__lead">
+        Use this site to install DiscordOps, validate your Discord setup, build a reporting flow, and package the plugin cleanly for launch.
+      </p>
+      <div className="hero__actions">
+        <a className="button button--primary" href="#quick-start">Open Quick Start</a>
+        <a className="button button--ghost" href="#validation">See launch checks</a>
+      </div>
+      <div className="hero__tags">
+        <span>Editor + Runtime</span>
+        <span>Webhook-first</span>
+        <span>Blueprint-first</span>
+        <span>Fab-ready</span>
+      </div>
+    </section>
+  `;
+}
+
+function SummarySection() {
+  return html`
+    <section className="summary-grid">
+      ${summaryCards.map(
+        (item) => html`
+          <article key=${item.title} className="summary-card">
+            <h3>${item.title}</h3>
+            <p>${item.body}</p>
+          </article>
+        `
+      )}
+    </section>
+  `;
+}
+
+function RouteSection() {
+  return html`
+    <section className="route-panel">
+      <div className="route-panel__header">
+        <span className="section-kicker">Recommended Reading Order</span>
+        <h2>A simple path through the documentation</h2>
+        <p>Start with the shortest route, then expand only when you need more depth.</p>
+      </div>
+      <div className="route-panel__steps">
+        ${routeSteps.map(
+          (item) => html`
+            <article key=${item.step} className="route-step">
+              <span className="route-step__label">${item.step}</span>
+              <strong>${item.title}</strong>
+              <p>${item.body}</p>
+            </article>
+          `
+        )}
       </div>
     </section>
   `;
@@ -299,11 +253,7 @@ function DocsSections() {
           }
 
           const content = await response.text();
-          return {
-            id: doc.id,
-            content,
-            error: ""
-          };
+          return { id: doc.id, content, error: "" };
         } catch (error) {
           return {
             id: doc.id,
@@ -335,41 +285,7 @@ function DocsSections() {
   }, []);
 
   return html`
-    <${React.Fragment}>
-      <section className="cards-grid">
-        ${overviewCards.map(
-          (item) => html`
-            <article key=${item.title} className="metric-card">
-              <h3>${item.title}</h3>
-              <strong>${item.value}</strong>
-              <p>${item.body}</p>
-            </article>
-          `
-        )}
-      </section>
-      <section className="feature-grid">
-        ${featureCards.map(
-          (item) => html`
-            <article key=${item.title} className="feature-card">
-              <span className="feature-card__tag">${item.tag}</span>
-              <h3>${item.title}</h3>
-              <p>${item.body}</p>
-            </article>
-          `
-        )}
-      </section>
-      <section className="feature-grid">
-        ${docsManifest.map(
-          (doc) => html`
-            <a key=${doc.id} className="doc-card" href=${`#${doc.id}`}>
-              <span className="doc-card__tag">${doc.eyebrow}</span>
-              <h3>${doc.label}</h3>
-              <p>${doc.description}</p>
-              <span className="doc-card__link">Jump to section</span>
-            </a>
-          `
-        )}
-      </section>
+    <section className="docs-stack">
       ${docsManifest.map(
         (doc) => html`
           <${MarkdownSection}
@@ -381,7 +297,7 @@ function DocsSections() {
           />
         `
       )}
-    <//>
+    </section>
   `;
 }
 
@@ -389,18 +305,10 @@ function FooterPanel() {
   return html`
     <footer className="footer-panel">
       <div>
-        <strong>Public docs, private product code.</strong>
-        <p>
-          This site is built only for documentation and onboarding. It is intentionally separate from the private plugin source so the release can stay protected while the docs remain easy to share.
-        </p>
+        <strong>Public documentation, private product code.</strong>
+        <p>This site is intentionally focused on onboarding and release guidance. The plugin source stays separate and protected.</p>
       </div>
-      <div className="sidebar__actions">
-        ${footerLinks.map((link) =>
-          link.kind === "primary"
-            ? html`<a key=${link.label} className="primary-button" href=${link.href}>${link.label}</a>`
-            : html`<a key=${link.label} className="ghost-button" href=${link.href}>${link.label}</a>`
-        )}
-      </div>
+      <a className="button button--ghost" href="#overview">Back to top</a>
     </footer>
   `;
 }
@@ -411,100 +319,75 @@ function Sidebar({ activeSection, navOpen, onNavigate, onToggle }) {
       <div className="mobile-bar">
         <a className="mobile-bar__brand" href="#overview" onClick=${onNavigate}>
           <span className="brand-mark">DO</span>
-          <span className="brand-copy">
+          <span>
             <strong>DiscordOps Docs</strong>
-            <span>React docs experience</span>
+            <small>Clean navigation</small>
           </span>
         </a>
         <button className="menu-button" type="button" onClick=${onToggle} aria-expanded=${navOpen}>
           ${navOpen ? "Close" : "Menu"}
         </button>
       </div>
-      <div className=${`site-shell${navOpen ? " is-nav-open" : ""}`}>
-        <aside className="sidebar" aria-label="Documentation navigation">
-          <div className="sidebar__top">
-            <a className="mobile-bar__brand" href="#overview" onClick=${onNavigate}>
-              <span className="brand-mark">DO</span>
-              <span className="brand-copy">
-                <strong>DiscordOps for Unreal</strong>
-                <span>Public docs only</span>
-              </span>
-            </a>
-            <span className="eyebrow">Docs Portal</span>
-            <div>
-              <h1 className="sidebar__title">Launch-ready docs with faster navigation.</h1>
-              <p className="sidebar__lead">
-                Browse setup, workflow, validation, packaging, and support guidance from a fixed sidebar that stays useful anywhere on the page.
-              </p>
-            </div>
-            <div className="sidebar__card">
-              <h3>Quick signal</h3>
-              <p>The site is focused on practical launch questions: install it, validate it, route reports, and ship it cleanly to Fab.</p>
-              <div className="sidebar__meta">
-                <div className="sidebar__meta-item">
-                  <strong>Engine</strong>
-                  <span>UE 5.7</span>
-                </div>
-                <div className="sidebar__meta-item">
-                  <strong>Launch</strong>
-                  <span>Win64 first</span>
-                </div>
-                <div className="sidebar__meta-item">
-                  <strong>Docs</strong>
-                  <span>Install to packaging</span>
-                </div>
-                <div className="sidebar__meta-item">
-                  <strong>Flow</strong>
-                  <span>Webhook-first</span>
-                </div>
-              </div>
-            </div>
+
+      <div className=${`page-shell${navOpen ? " is-nav-open" : ""}`}>
+        <aside className="sidebar">
+          <a className="sidebar__brand" href="#overview" onClick=${onNavigate}>
+            <span className="brand-mark">DO</span>
+            <span>
+              <strong>DiscordOps for Unreal</strong>
+              <small>Documentation portal</small>
+            </span>
+          </a>
+
+          <p className="sidebar__intro">
+            Everything here is organized around one goal: getting DiscordOps working quickly and shipping it cleanly.
+          </p>
+
+          <div className="sidebar__badges">
+            <span>UE 5.7</span>
+            <span>Win64 first</span>
+            <span>React docs</span>
           </div>
+
           <nav className="sidebar__nav">
-            <p className="sidebar__nav-label">Navigation</p>
             <a
               className=${`sidebar__link${activeSection === "overview" ? " is-active" : ""}`}
               href="#overview"
               onClick=${onNavigate}
             >
-              <span className="sidebar__link-index">00</span>
-              <span className="sidebar__link-copy">
-                <strong>Overview</strong>
-                <span>Impact, highlights, and workflow</span>
-              </span>
+              <strong>Overview</strong>
+              <span>Start here</span>
             </a>
             ${docsManifest.map(
-              (doc, index) => html`
+              (doc) => html`
                 <a
                   key=${doc.id}
                   className=${`sidebar__link${activeSection === doc.id ? " is-active" : ""}`}
                   href=${`#${doc.id}`}
                   onClick=${onNavigate}
                 >
-                  <span className="sidebar__link-index">${String(index + 1).padStart(2, "0")}</span>
-                  <span className="sidebar__link-copy">
-                    <strong>${doc.label}</strong>
-                    <span>${doc.eyebrow}</span>
-                  </span>
+                  <strong>${doc.label}</strong>
+                  <span>${doc.summary}</span>
                 </a>
               `
             )}
           </nav>
-          <div className="sidebar__cta">
-            <h3>Best first route</h3>
-            <p>If you only need one path, start with Quick Start, then jump to Troubleshooting if Live Validate reports a Discord-side issue.</p>
-            <div className="sidebar__actions">
-              <a className="primary-button" href="#quick-start" onClick=${onNavigate}>Start here</a>
-              <a className="ghost-button" href="#troubleshooting" onClick=${onNavigate}>Fix issues</a>
-            </div>
+
+          <div className="sidebar__hint">
+            <strong>Best first move</strong>
+            <p>Open Quick Start first. Use Troubleshooting only when a real validation or delivery issue appears.</p>
           </div>
         </aside>
+
         <main className="content">
-          <${OverviewSection} />
+          <${HeroSection} />
+          <${SummarySection} />
+          <${RouteSection} />
           <${DocsSections} />
           <${FooterPanel} />
         </main>
       </div>
+
       <div className="sidebar-overlay" onClick=${onNavigate}></div>
     <//>
   `;
@@ -521,10 +404,7 @@ function App() {
   }, [progress]);
 
   useEffect(() => {
-    const onHashChange = () => {
-      setNavOpen(false);
-    };
-
+    const onHashChange = () => setNavOpen(false);
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);

@@ -4,192 +4,192 @@
 
 ### `Webhook URL`
 
-- Obligatorio para el flujo principal del v1.
-- Debe apuntar a un endpoint real de Discord webhook.
-- Es la ruta por defecto si un preset no tiene override propio.
+- Required for the main v1 workflow.
+- Must point to a real Discord webhook endpoint.
+- Acts as the default route when a preset does not have its own override.
 
 ### `Default Channel Label`
 
-- Nombre logico mostrado en el payload.
-- Default recomendado: `QA Reports`.
+- Logical name shown in the payload.
+- Recommended default: `QA Reports`.
 
 ### `Username Override`
 
-- Solo aplica en webhook mode.
-- Default: `Ops Reporter`.
-- Discord rechaza usernames que contengan la palabra `Discord`.
+- Applies only in webhook mode.
+- Recommended default: `Ops Reporter`.
+- Discord rejects usernames that contain the word `Discord`.
 
 ### `Icon URL Override`
 
-- Opcional.
-- Solo aplica en webhook mode.
+- Optional.
+- Applies only in webhook mode.
 
 ## Destinations
 
 ### `QADestinationLabel`
 
-- Label mostrado para el preset `QA`.
-- Default recomendado: `QA Reports`.
+- Label shown for the `QA` preset.
+- Recommended default: `QA Reports`.
 
 ### `QAWebhookUrl`
 
-- Override dedicado para el preset `QA`.
-- Si esta vacio, cae al `Webhook URL` por defecto.
+- Dedicated override for the `QA` preset.
+- If empty, it falls back to the default `Webhook URL`.
 
 ### `BugsDestinationLabel`
 
-- Label mostrado para el preset `Bugs`.
-- Default recomendado: `Bug Reports`.
+- Label shown for the `Bugs` preset.
+- Recommended default: `Bug Reports`.
 
 ### `BugsWebhookUrl`
 
-- Override dedicado para el preset `Bugs`.
+- Dedicated override for the `Bugs` preset.
 
 ### `CommunitySupportDestinationLabel`
 
-- Label mostrado para el preset `Community Support`.
+- Label shown for the `Community Support` preset.
 
 ### `CommunitySupportWebhookUrl`
 
-- Override dedicado para el preset `Community Support`.
+- Dedicated override for the `Community Support` preset.
 
 ### `InternalTestingDestinationLabel`
 
-- Label mostrado para el preset `Internal Testing`.
+- Label shown for the `Internal Testing` preset.
 
 ### `InternalTestingWebhookUrl`
 
-- Override dedicado para el preset `Internal Testing`.
+- Dedicated override for the `Internal Testing` preset.
 
 ## Capture
 
 ### `Enable Screenshot Capture`
 
 - Default: `true`.
-- Si falla, el reporte sigue enviandose con warning.
+- If capture fails, the report is still sent with a warning.
 
 ### `Enable Log Attachment`
 
 - Default: `true`.
-- Adjunta snippet de log y archivo `.txt` cuando aplica.
+- Attaches a log snippet and a `.txt` file when appropriate.
 
 ### `Max Attached Log Lines`
 
 - Default: `120`.
-- Rango sugerido actual: `10-500`.
+- Suggested current range: `10-500`.
 
 ## Metadata
 
 ### `Include Project Metadata`
 
 - Default: `true`.
-- Incluye proyecto, version, engine, plataforma, mapa, modo y build config.
+- Includes project, version, engine, platform, map, mode, and build configuration.
 
 ## Privacy
 
 ### `Enable Sensitive Data Redaction`
 
 - Default: `true`.
-- Activa limpieza de datos sensibles antes de enviar texto o logs.
+- Cleans sensitive information before sending text or logs.
 
 ### `bRedactFilePaths`
 
 - Default: `true`.
-- Reemplaza rutas locales conocidas con placeholders.
+- Replaces known local file paths with placeholders.
 
 ### `bRedactUserNames`
 
 - Default: `true`.
-- Reemplaza el username local cuando aparece en logs o texto.
+- Replaces the local username when it appears in logs or extra text.
 
 ### `AdditionalSensitiveTerms`
 
-- Lista extra de terminos a ocultar en texto, contextos y logs.
+- Extra list of terms to hide in text, context, and logs.
 
 ## Reports
 
 ### `bAutoGenerateReportIds`
 
 - Default: `true`.
-- Genera IDs como `BUG-0001`, `QA-0004` o `CRASH-0002`.
+- Generates IDs such as `BUG-0001`, `QA-0004`, or `CRASH-0002`.
 
 ### `MaxStoredHistoryEntries`
 
 - Default: `25`.
-- Limita historial y replay recientes para no crecer sin control.
+- Limits recent history and replay storage so the list does not grow forever.
 
 ## Bot
 
 ### `Enable Bot Mode`
 
 - Default: `false`.
-- En v1.1 ya cubre validacion, envio a canales dedicados y follow-up threads.
+- In v1.1 this covers validation, delivery to dedicated channels, and follow-up threads.
 
 ### `Bot Token`
 
-- Obligatorio si `Enable Bot Mode` esta activo.
+- Required when `Enable Bot Mode` is enabled.
 
 ### `Bot Guild ID`
 
-- Opcional en el transporte v1.
-- Recomendado para compat futura.
+- Optional in the current transport flow.
+- Recommended for future compatibility.
 
 ### `Bot Channel ID`
 
-- Obligatorio si `Enable Bot Mode` esta activo.
+- Required when `Enable Bot Mode` is enabled.
 
 ### `QABotChannelId`
 
-- Override dedicado del canal `QA`.
+- Dedicated override for the `QA` channel.
 
 ### `BugsBotChannelId`
 
-- Override dedicado del canal `Bugs`.
+- Dedicated override for the `Bugs` channel.
 
 ### `CommunitySupportBotChannelId`
 
-- Override dedicado del canal `Community Support`.
+- Dedicated override for the `Community Support` channel.
 
 ### `InternalTestingBotChannelId`
 
-- Override dedicado del canal `Internal Testing`.
+- Dedicated override for the `Internal Testing` channel.
 
 ### `bAllowThreadCreationInBotMode`
 
 - Default: `true`.
-- Permite crear un hilo de seguimiento cuando `bCreateThread` esta activo en el reporte.
+- Allows a follow-up thread when `bCreateThread` is enabled in the report request.
 
 ### `ThreadAutoArchiveDurationMinutes`
 
 - Default: `1440`.
-- Rango actual: `60-10080`.
-- Solo aplica en `bot mode`.
+- Current range: `60-10080`.
+- Applies only in `bot mode`.
 
 ## Runtime / Editor
 
 ### `Enable Runtime Reports`
 
 - Default: `true`.
-- Debe quedar activo para builds empaquetados.
+- Must stay enabled for packaged builds.
 
 ### `Enable Editor Reports`
 
 - Default: `true`.
-- Habilita panel y envio desde editor.
+- Enables the editor panel and delivery from the editor.
 
 ## Automation
 
 ### `bEnableEnsureReports`
 
 - Default: `true`.
-- Cuando Unreal dispara un ensure, DiscordOps intenta mandar un reporte automatico de seguimiento.
+- When Unreal fires an `ensure`, DiscordOps attempts to send an automatic follow-up report.
 
 ### `bEnableCrashMarkerReports`
 
 - Default: `true`.
-- Guarda un marker local al detectar un error fatal para reportarlo en el siguiente inicio.
+- Stores a local marker after a fatal error so it can be reported on the next startup.
 
 ### `bAutoSendPendingCrashReportsOnStartup`
 
 - Default: `true`.
-- Reintenta reportar el marker pendiente al arrancar el proyecto.
+- Retries the pending crash marker on the next project start.

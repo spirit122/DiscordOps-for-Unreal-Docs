@@ -1,50 +1,50 @@
 # 5-Minute Quick Start
 
-## Objetivo
+## Goal
 
-Enviar un bug report o QA report a Discord en menos de 5 minutos usando `webhook mode`, sin tocar codigo.
+Send a bug report or QA report to Discord in less than five minutes using `webhook mode`, without touching code.
 
-## Pasos
+## Steps
 
-1. Crea un webhook en el canal de Discord donde quieres recibir reportes.
-2. Instala el plugin en `Plugins/DiscordOps`.
-3. Abre `Project Settings > Plugins > DiscordOps`.
-4. Pega el `Webhook URL` por defecto.
-5. Si quieres separar destinos, llena `QAWebhookUrl`, `BugsWebhookUrl`, `CommunitySupportWebhookUrl` o `InternalTestingWebhookUrl`.
-6. Usa un `Username Override` sin la palabra `Discord`, por ejemplo `Ops Reporter`.
-7. Activa screenshots, logs y metadata.
-8. Abre `Window > DiscordOps`.
-9. En `Webhook Quick Setup`, elige el preset que quieres configurar, pega la URL y pulsa `Save Local Webhook`.
-10. Pulsa `Validate Setup`.
-11. Pulsa `Live Validate` para confirmar reachability real.
-12. Pulsa `Send Demo Report` o `Send Test Report`.
+1. Create a webhook in the Discord channel where you want reports to arrive.
+2. Install the plugin in `Plugins/DiscordOps`.
+3. Open `Project Settings > Plugins > DiscordOps`.
+4. Paste the default `Webhook URL`.
+5. If you want separate destinations, fill in `QAWebhookUrl`, `BugsWebhookUrl`, `CommunitySupportWebhookUrl`, or `InternalTestingWebhookUrl`.
+6. Use a `Username Override` that does not contain the word `Discord`, for example `Ops Reporter`.
+7. Enable screenshots, logs, and metadata.
+8. Open `Window > DiscordOps`.
+9. In `Webhook Quick Setup`, choose the preset you want to configure, paste the URL, and press `Save Local Webhook`.
+10. Press `Validate Setup`.
+11. Press `Live Validate` to confirm real reachability.
+12. Press `Send Demo Report` or `Send Test Report`.
 
-## Resultado esperado
+## Expected Result
 
-Discord debe recibir:
+Discord should receive:
 
-- un embed con titulo y descripcion
-- template, categoria y severidad
-- proyecto, engine, plataforma, timestamp y modo de ejecucion
-- screenshot si hay un viewport real disponible
-- snippet de log si aplica
-- report ID autogenerado si esta activo
+- an embed with title and description
+- template, category, and severity
+- project, engine, platform, timestamp, and execution mode
+- a screenshot when a real viewport is available
+- a log snippet when enabled
+- an auto-generated report ID when that option is enabled
 
-## Flujo rapido en runtime
+## Fast Runtime Flow
 
-1. Agrega `UDiscordOpsRuntimeReportWidget` a tu HUD o crea la instancia desde tu `PlayerController`.
-2. Ejecuta el juego.
-3. Pulsa `Validate Setup` o `Live Validate`.
-4. Pulsa `Send Demo Report`.
+1. Add `UDiscordOpsRuntimeReportWidget` to your HUD or create an instance from your `PlayerController`.
+2. Run the game.
+3. Press `Validate Setup` or `Live Validate`.
+4. Press `Send Demo Report`.
 
-## Recomendacion de uso en Blueprint
+## Recommended Blueprint Usage
 
-- Usa `Build Template Report Request` para arrancar con `Crash`, `Gameplay Bug`, `Visual Bug`, `Performance`, `QA Pass` o `QA Fail`.
-- Usa `DestinationPreset` para enviar a `QA`, `Bugs`, `Community Support` o `Internal Testing`.
-- Usa `CustomFields` para ticket, branch, tester o hardware.
-- Activa `bCreateThread` solo cuando tengas `bot mode` configurado.
+- Use `Build Template Report Request` to start from `Crash`, `Gameplay Bug`, `Visual Bug`, `Performance`, `QA Pass`, or `QA Fail`.
+- Use `DestinationPreset` to route to `QA`, `Bugs`, `Community Support`, or `Internal Testing`.
+- Use `CustomFields` for ticket number, branch, tester, or hardware details.
+- Enable `bCreateThread` only when `bot mode` is configured.
 
-## Nota importante sobre screenshots
+## Important Screenshot Note
 
-- En `Editor-Cmd` o contextos sin viewport, el reporte se envia con warning y sin imagen.
-- En `PIE`, `Standalone` o `packaged runtime`, el screenshot puede adjuntarse de forma real si existe `GameViewport`.
+- In `Editor-Cmd` or any context without a viewport, the report is sent with a warning and no image.
+- In `PIE`, `Standalone`, or `packaged runtime`, the screenshot can be attached for real when a `GameViewport` exists.
