@@ -14,13 +14,13 @@ const docsManifest = [
   {
     id: "quick-start",
     label: "Quick Start",
-    summary: "Install, enable, validate, and send your first real Discord report.",
+    summary: "Install from Epic Games Launcher, enable the plugin, and send your first real Discord report.",
     file: "quick-start-webhook.md"
   },
   {
     id: "installation",
     label: "Installation",
-    summary: "Engine plugin install, activation in Unreal, and first-time setup.",
+    summary: "Epic Games Launcher install, plugin activation in Unreal, and first-time setup.",
     file: "installation-guide.md"
   },
   {
@@ -52,7 +52,7 @@ const docsManifest = [
 const summaryCards = [
   {
     title: "Fast setup",
-    body: "The docs are organized around the real first-use path: install the plugin, enable it in Unreal, open the widget, then configure Discord."
+    body: "The docs follow the real first-use path for store customers: install from Epic Games Launcher, enable the plugin in Unreal, open the widget, then configure Discord."
   },
   {
     title: "Clear launch path",

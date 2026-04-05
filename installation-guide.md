@@ -4,16 +4,18 @@
 
 This version of `DiscordOps for Unreal` is validated for `UE 5.7` on `Win64`.
 
-## Install in the Unreal Engine
+## Install from Epic Games Launcher
 
 1. Close Unreal Editor.
-2. Copy the `DiscordOps` folder into your Unreal Engine plugin location.
-3. Open your Unreal project.
-4. Go to `Edit > Plugins`.
-5. Search for `DiscordOps`.
-6. Enable the plugin.
-7. Restart the editor if Unreal asks for it.
-8. Confirm that these entries appear:
+2. Download or install `DiscordOps for Unreal` from the Epic Games Launcher.
+3. Choose the Unreal Engine version you want to use.
+4. Install the plugin for that engine version.
+5. Open your Unreal project with that engine version.
+6. Go to `Edit > Plugins`.
+7. Search for `DiscordOps`.
+8. Enable the plugin if it is not already enabled.
+9. Restart the editor if Unreal asks for it.
+10. Confirm that these entries appear:
    - `Edit > Project Settings > Plugins > DiscordOps`
    - `Window > DiscordOps`
 
@@ -41,6 +43,10 @@ After the plugin is enabled correctly:
 - `DiscordOps` appears in the Unreal plugin list
 - `Edit > Project Settings > Plugins > DiscordOps` becomes available
 - `Window > DiscordOps` opens the plugin widget
+
+## Manual Install Note
+
+If you are not using the Epic Games Launcher flow, a manual install is still possible, but that is not the primary installation path for store customers.
 
 ## Bot Mode
 

@@ -6,23 +6,24 @@ Send a bug report or QA report to Discord in less than five minutes using `webho
 
 ## Steps
 
-1. Install the plugin into your Unreal Engine plugin folder.
-2. Open your Unreal project.
-3. Go to `Edit > Plugins`.
-4. Search for `DiscordOps` and enable it.
-5. Restart the editor if Unreal asks for it.
-6. Open `Window > DiscordOps` and confirm the widget appears.
-7. Create a webhook in the Discord channel where you want reports to arrive.
-8. Open `Edit > Project Settings > Plugins > DiscordOps`.
-9. Paste the default `Webhook URL`.
-10. If you want separate destinations, fill in `QAWebhookUrl`, `BugsWebhookUrl`, `CommunitySupportWebhookUrl`, or `InternalTestingWebhookUrl`.
-11. Use a `Username Override` that does not contain the word `Discord`, for example `Ops Reporter`.
-12. Enable screenshots, logs, and metadata.
-13. Return to `Window > DiscordOps`.
-14. In `Webhook Quick Setup`, choose the preset you want to configure, paste the URL, and press `Save Local Webhook`.
-15. Press `Validate Setup`.
-16. Press `Live Validate` to confirm real reachability.
-17. Press `Send Demo Report` or `Send Test Report`.
+1. Install `DiscordOps for Unreal` from the Epic Games Launcher.
+2. Select the Unreal Engine version you want to use and install the plugin for that version.
+3. Open your Unreal project.
+4. Go to `Edit > Plugins`.
+5. Search for `DiscordOps` and enable it.
+6. Restart the editor if Unreal asks for it.
+7. Open `Window > DiscordOps` and confirm the widget appears.
+8. Create a webhook in the Discord channel where you want reports to arrive.
+9. Open `Edit > Project Settings > Plugins > DiscordOps`.
+10. Paste the default `Webhook URL`.
+11. If you want separate destinations, fill in `QAWebhookUrl`, `BugsWebhookUrl`, `CommunitySupportWebhookUrl`, or `InternalTestingWebhookUrl`.
+12. Use a `Username Override` that does not contain the word `Discord`, for example `Ops Reporter`.
+13. Enable screenshots, logs, and metadata.
+14. Return to `Window > DiscordOps`.
+15. In `Webhook Quick Setup`, choose the preset you want to configure, paste the URL, and press `Save Local Webhook`.
+16. Press `Validate Setup`.
+17. Press `Live Validate` to confirm real reachability.
+18. Press `Send Demo Report` or `Send Test Report`.
 
 ## Expected Result
 
