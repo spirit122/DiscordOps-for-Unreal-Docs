@@ -46,12 +46,6 @@ const docsManifest = [
     label: "Validation",
     summary: "Use the launch checklist and validation matrix before publishing.",
     file: "validation-checklist.md"
-  },
-  {
-    id: "packaging",
-    label: "Packaging",
-    summary: "Prepare a clean plugin zip that fits Fab expectations.",
-    file: "packaging-checklist.md"
   }
 ];
 
@@ -62,7 +56,7 @@ const summaryCards = [
   },
   {
     title: "Clear launch path",
-    body: "Validation, packaging, and troubleshooting sections are written for real release work, not vague theory."
+    body: "Validation and troubleshooting sections are written for real release work, not vague theory."
   },
   {
     title: "Public docs only",
@@ -83,8 +77,8 @@ const routeSteps = [
   },
   {
     step: "Launch",
-    title: "Validation + Packaging",
-    body: "Use these sections before a Fab submission or an internal release handoff."
+    title: "Validation + Troubleshooting",
+    body: "Use these sections before a Fab submission, a QA handoff, or a wider internal rollout."
   }
 ];
 
@@ -182,7 +176,7 @@ function HeroSection() {
         <span>Discord QA workflow.</span>
       </h1>
       <p className="hero__lead">
-        Use this site to install DiscordOps, validate your Discord setup, build a reporting flow, and package the plugin cleanly for launch.
+        Use this site to install DiscordOps, validate your Discord setup, and build a reporting flow that works cleanly inside Unreal.
       </p>
       <div className="hero__actions">
         <a className="button button--primary" href="#quick-start">Open Quick Start</a>
@@ -192,7 +186,7 @@ function HeroSection() {
         <span>Editor + Runtime</span>
         <span>Webhook-first</span>
         <span>Blueprint-first</span>
-        <span>Fab-ready</span>
+        <span>QA workflow</span>
       </div>
     </section>
   `;
@@ -340,7 +334,7 @@ function Sidebar({ activeSection, navOpen, onNavigate, onToggle }) {
           </a>
 
           <p className="sidebar__intro">
-            Everything here is organized around one goal: getting DiscordOps working quickly and shipping it cleanly.
+            Everything here is organized around one goal: getting DiscordOps working quickly and using it well inside Unreal.
           </p>
 
           <div className="sidebar__badges">
