@@ -14,13 +14,13 @@ const docsManifest = [
   {
     id: "quick-start",
     label: "Quick Start",
-    summary: "Go from install to your first real Discord report in minutes.",
+    summary: "Install, enable, validate, and send your first real Discord report.",
     file: "quick-start-webhook.md"
   },
   {
     id: "installation",
     label: "Installation",
-    summary: "Project plugin install, minimum setup, and local secret handling.",
+    summary: "Engine plugin install, activation in Unreal, and first-time setup.",
     file: "installation-guide.md"
   },
   {
@@ -52,7 +52,7 @@ const docsManifest = [
 const summaryCards = [
   {
     title: "Fast setup",
-    body: "The docs are organized around the shortest path to a working webhook-based reporting flow."
+    body: "The docs are organized around the real first-use path: install the plugin, enable it in Unreal, open the widget, then configure Discord."
   },
   {
     title: "Clear launch path",

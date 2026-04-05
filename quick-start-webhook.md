@@ -6,18 +6,23 @@ Send a bug report or QA report to Discord in less than five minutes using `webho
 
 ## Steps
 
-1. Create a webhook in the Discord channel where you want reports to arrive.
-2. Install the plugin in `Plugins/DiscordOps`.
-3. Open `Project Settings > Plugins > DiscordOps`.
-4. Paste the default `Webhook URL`.
-5. If you want separate destinations, fill in `QAWebhookUrl`, `BugsWebhookUrl`, `CommunitySupportWebhookUrl`, or `InternalTestingWebhookUrl`.
-6. Use a `Username Override` that does not contain the word `Discord`, for example `Ops Reporter`.
-7. Enable screenshots, logs, and metadata.
-8. Open `Window > DiscordOps`.
-9. In `Webhook Quick Setup`, choose the preset you want to configure, paste the URL, and press `Save Local Webhook`.
-10. Press `Validate Setup`.
-11. Press `Live Validate` to confirm real reachability.
-12. Press `Send Demo Report` or `Send Test Report`.
+1. Install the plugin into your Unreal Engine plugin folder.
+2. Open your Unreal project.
+3. Go to `Edit > Plugins`.
+4. Search for `DiscordOps` and enable it.
+5. Restart the editor if Unreal asks for it.
+6. Open `Window > DiscordOps` and confirm the widget appears.
+7. Create a webhook in the Discord channel where you want reports to arrive.
+8. Open `Edit > Project Settings > Plugins > DiscordOps`.
+9. Paste the default `Webhook URL`.
+10. If you want separate destinations, fill in `QAWebhookUrl`, `BugsWebhookUrl`, `CommunitySupportWebhookUrl`, or `InternalTestingWebhookUrl`.
+11. Use a `Username Override` that does not contain the word `Discord`, for example `Ops Reporter`.
+12. Enable screenshots, logs, and metadata.
+13. Return to `Window > DiscordOps`.
+14. In `Webhook Quick Setup`, choose the preset you want to configure, paste the URL, and press `Save Local Webhook`.
+15. Press `Validate Setup`.
+16. Press `Live Validate` to confirm real reachability.
+17. Press `Send Demo Report` or `Send Test Report`.
 
 ## Expected Result
 

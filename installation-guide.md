@@ -4,31 +4,43 @@
 
 This version of `DiscordOps for Unreal` is validated for `UE 5.7` on `Win64`.
 
-## Install as a Project Plugin
+## Install in the Unreal Engine
 
 1. Close Unreal Editor.
-2. Copy the `DiscordOps` folder into `YourProject/Plugins/DiscordOps`.
-3. Open the `.uproject`.
-4. If Unreal asks to build the plugin, allow it.
-5. Confirm that these entries appear:
+2. Copy the `DiscordOps` folder into your Unreal Engine plugin location.
+3. Open your Unreal project.
+4. Go to `Edit > Plugins`.
+5. Search for `DiscordOps`.
+6. Enable the plugin.
+7. Restart the editor if Unreal asks for it.
+8. Confirm that these entries appear:
    - `Edit > Project Settings > Plugins > DiscordOps`
    - `Window > DiscordOps`
 
 ## Minimum v1 Configuration
 
-1. Open `Project Settings > Plugins > DiscordOps`.
-2. Paste a valid Discord `Webhook URL`.
-3. Adjust `Default Channel Label` if you want a friendlier destination name.
-4. Leave these enabled:
+1. Open `Window > DiscordOps` and confirm the widget appears.
+2. Open `Edit > Project Settings > Plugins > DiscordOps`.
+3. Paste a valid Discord `Webhook URL`.
+4. Adjust `Default Channel Label` if you want a friendlier destination name.
+5. Leave these enabled:
    - `Enable Screenshot Capture`
    - `Enable Log Attachment`
    - `Include Project Metadata`
    - `Enable Runtime Reports`
    - `Enable Editor Reports`
-5. Save the settings.
-6. Open `Window > DiscordOps`.
-7. Run `Validate Setup`.
-8. Run `Send Test Report`.
+6. Save the settings.
+7. Return to `Window > DiscordOps`.
+8. Run `Validate Setup`.
+9. Run `Send Test Report`.
+
+## What You Should See
+
+After the plugin is enabled correctly:
+
+- `DiscordOps` appears in the Unreal plugin list
+- `Edit > Project Settings > Plugins > DiscordOps` becomes available
+- `Window > DiscordOps` opens the plugin widget
 
 ## Bot Mode
 
