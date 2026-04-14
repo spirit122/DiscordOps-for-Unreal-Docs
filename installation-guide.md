@@ -110,11 +110,27 @@ The main window keeps the workflow compact: choose a destination, manage custom 
 
 ![DiscordOps main panel](Images/01-plugin-overview.png)
 
+What to do here:
+
+- Start in `Route Setup` to choose where reports should go
+- use `Local Webhook Override` to assign the webhook for the selected destination
+- use `New Destination` only when you need an extra named route such as `Analytics` or `LiveOps`
+- once the route is saved and validated, continue to the report section
+
 ### 2. Report section
 
 The `Report` area is where you choose a template, write the title and description, attach a reference link, and optionally include a screenshot or log before sending.
 
 ![DiscordOps report section](Images/02-report-section.png)
+
+What to do here:
+
+- choose the template that matches the report, such as `Custom`, `Bug`, `QA`, or `Crash`
+- write a short title that explains the issue immediately
+- keep the description focused on only what the team needs to act
+- add a `Video / Reference Link` when extra context is useful
+- enable screenshot or log attachments only when they help explain the problem better
+- click `Send Report` when the route is already configured
 
 ### 3. Webhook creation and route setup
 
@@ -122,8 +138,23 @@ Create the Discord webhook in the target channel, copy its URL, then paste it in
 
 ![Discord webhook creation and DiscordOps route setup](Images/03-webhook-route-setup.png)
 
+What is happening in this step:
+
+- on the Discord side, create or open the webhook for the channel that should receive the reports
+- copy the webhook URL from Discord
+- in the plugin, select the matching destination and paste that URL into `Local Webhook Override`
+- click `Save Local Webhook`
+- run `Validate Setup` to confirm the selected route is ready before sending a real report
+
 ### 4. Delivery in Discord
 
 After sending, the report arrives in Discord as a compact message with the key context, and can include attachments such as the screenshot and the recent log snippet.
 
 ![DiscordOps report delivered to Discord](Images/04-discord-delivery.png)
+
+What to expect in Discord:
+
+- the message appears in the channel connected to the selected webhook
+- the report keeps the important data visible, such as report type, severity, category, and context
+- if enabled, the screenshot appears attached to help the team see the issue faster
+- if enabled, the recent log is sent as a file so the message stays compact and readable
