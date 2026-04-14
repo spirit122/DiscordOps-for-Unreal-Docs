@@ -26,7 +26,7 @@ const docsManifest = [
   {
     id: "settings",
     label: "Settings",
-    summary: "Transport, destinations, privacy, automation, and runtime settings.",
+    summary: "Only the settings that matter most for setup, route validation, and everyday reporting.",
     file: "settings-reference.md"
   },
   {

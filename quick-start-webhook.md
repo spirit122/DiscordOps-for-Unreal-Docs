@@ -16,13 +16,18 @@ Send a bug report or QA report to Discord in under 5 minutes using the current w
 8. Fill the report in the `Report` section.
 9. Click `Send Report`.
 
-## Route Setup reference
+## Visual flow
 
-![Webhook creation and Route Setup](Images/02-webhook-creation-and-route-setup.png)
-
-## Report section reference
-
-![Report section](Images/03-report-section.png)
+<div class="doc-gallery">
+  <figure>
+    <img src="Images/02-webhook-creation-and-route-setup.png" alt="Discord webhook creation and DiscordOps Route Setup section" />
+    <figcaption>Step 1: create the webhook in Discord and save it in Route Setup.</figcaption>
+  </figure>
+  <figure>
+    <img src="Images/03-report-section.png" alt="DiscordOps report section" />
+    <figcaption>Step 2: fill the report and send only the context the team needs.</figcaption>
+  </figure>
+</div>
 
 ## Expected result
 

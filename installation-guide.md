@@ -45,7 +45,10 @@ The current UI is split into three parts:
 - `New Destination`
 - `Report`
 
-![DiscordOps panel overview](Images/01-discordops-panel-overview.png)
+<figure>
+  <img src="Images/01-discordops-panel-overview.png" alt="DiscordOps panel overview in Unreal Editor" />
+  <figcaption>The compact panel keeps setup, destination management, and reporting in one place.</figcaption>
+</figure>
 
 ## 3. Create a Discord webhook
 
@@ -59,7 +62,10 @@ Create a webhook for the channel that should receive the reports, then copy the 
 
 The screenshot below shows the webhook page in Discord and the matching route setup flow in DiscordOps.
 
-![Webhook creation and Route Setup](Images/02-webhook-creation-and-route-setup.png)
+<figure>
+  <img src="Images/02-webhook-creation-and-route-setup.png" alt="Discord webhook creation in Discord and matching Route Setup flow in DiscordOps" />
+  <figcaption>Create the webhook in Discord, then paste that URL into <code>Local Webhook Override</code> inside Route Setup.</figcaption>
+</figure>
 
 ## 4. Save the webhook in DiscordOps
 
@@ -106,16 +112,21 @@ Use the `Report` section to prepare the message:
 - `Attach editor screenshot on send`
 - `Attach log`
 
-![Report section](Images/03-report-section.png)
+<div class="doc-gallery">
+  <figure>
+    <img src="Images/03-report-section.png" alt="DiscordOps report section with template, title, description, link, screenshot and log options" />
+    <figcaption>Fill only the essentials: template, title, description, optional link, and optional attachments.</figcaption>
+  </figure>
+  <figure>
+    <img src="Images/04-sent-crash-report-example.png" alt="Crash report sent from DiscordOps and displayed in Discord with screenshot and log attachment" />
+    <figcaption>The final Discord message stays compact while still carrying the screenshot and recent log snippet.</figcaption>
+  </figure>
+</div>
 
 When the route is ready:
 
 1. Fill the report fields
 2. Click `Send Report`
-
-The example below shows a crash report delivered to Discord with a compact card, screenshot, and attached log file.
-
-![Sent crash report example](Images/04-sent-crash-report-example.png)
 
 ## Security notes
 
