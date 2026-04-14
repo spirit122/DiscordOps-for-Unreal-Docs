@@ -14,13 +14,13 @@ const docsManifest = [
   {
     id: "quick-start",
     label: "Quick Start",
-    summary: "Install from Epic Games Launcher, enable the plugin, and send your first real Discord report.",
+    summary: "Create a webhook, save it in Route Setup, validate the route, and send your first real Discord report.",
     file: "quick-start-webhook.md"
   },
   {
     id: "installation",
     label: "Installation",
-    summary: "Epic Games Launcher install, plugin activation in Unreal, and first-time setup.",
+    summary: "Install from Fab or source, open Window > DiscordOps, and configure your first destination with visual steps.",
     file: "installation-guide.md"
   },
   {
@@ -51,12 +51,12 @@ const docsManifest = [
 
 const summaryCards = [
   {
-    title: "Fast setup",
-    body: "The docs follow the real first-use path for store customers: install from Epic Games Launcher, enable the plugin in Unreal, open the widget, then configure Discord."
+    title: "Visual setup",
+    body: "The install guide now shows the real first-use flow with screenshots for Route Setup, report fields, and a sent Discord example."
   },
   {
-    title: "Clear launch path",
-    body: "Validation and troubleshooting sections are written for real release work, not vague theory."
+    title: "Cleaner onboarding",
+    body: "The docs focus on the compact panel workflow: save a local webhook, validate the selected route, then send a focused report."
   },
   {
     title: "Public docs only",
@@ -68,12 +68,12 @@ const routeSteps = [
   {
     step: "Start",
     title: "Quick Start",
-    body: "Use this if you want a fast proof that DiscordOps is working."
+    body: "Use this if you want a fast proof that DiscordOps is working with the current panel and webhook flow."
   },
   {
     step: "Build",
-    title: "Settings + Blueprint",
-    body: "Go deeper when you need routing, templates, automation, or a reusable reporting flow."
+    title: "Installation + Settings",
+    body: "Go deeper when you need the full setup path, custom destinations, and route behavior details."
   },
   {
     step: "Launch",

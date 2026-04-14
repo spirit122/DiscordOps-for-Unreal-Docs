@@ -2,55 +2,54 @@
 
 ## Goal
 
-Send a bug report or QA report to Discord in less than five minutes using `webhook mode`, without touching code.
+Send a bug report or QA report to Discord in under 5 minutes using the current webhook-based setup flow and the compact editor panel.
 
 ## Steps
 
-1. Install `DiscordOps for Unreal` from the Epic Games Launcher.
-2. Select the Unreal Engine version you want to use and install the plugin for that version.
-3. Open your Unreal project.
-4. Go to `Edit > Plugins`.
-5. Search for `DiscordOps` and enable it.
-6. Restart the editor if Unreal asks for it.
-7. Open `Window > DiscordOps` and confirm the widget appears.
-8. Create a webhook in the Discord channel where you want reports to arrive.
-9. Open `Edit > Project Settings > Plugins > DiscordOps`.
-10. Paste the default `Webhook URL`.
-11. If you want separate destinations, fill in `QAWebhookUrl`, `BugsWebhookUrl`, `CommunitySupportWebhookUrl`, or `InternalTestingWebhookUrl`.
-12. Use a `Username Override` that does not contain the word `Discord`, for example `Ops Reporter`.
-13. Enable screenshots, logs, and metadata.
-14. Return to `Window > DiscordOps`.
-15. In `Webhook Quick Setup`, choose the preset you want to configure, paste the URL, and press `Save Local Webhook`.
-16. Press `Validate Setup`.
-17. Press `Live Validate` to confirm real reachability.
-18. Press `Send Demo Report` or `Send Test Report`.
+1. Install `DiscordOps for Unreal` and enable the plugin in Unreal.
+2. Create a Discord webhook in the channel that should receive reports.
+3. Open Unreal and go to `Window > DiscordOps`.
+4. In `Route Setup`, choose `Default`, `QA`, `Bugs`, or a custom destination.
+5. Paste the webhook into `Local Webhook Override`.
+6. Click `Save Local Webhook`.
+7. Click `Validate Setup`.
+8. Fill the report in the `Report` section.
+9. Click `Send Report`.
 
-## Expected Result
+## Route Setup reference
 
-Discord should receive:
+![Webhook creation and Route Setup](Images/02-webhook-creation-and-route-setup.png)
 
-- an embed with title and description
-- template, category, and severity
-- project, engine, platform, timestamp, and execution mode
-- a screenshot when a real viewport is available
-- a log snippet when enabled
-- an auto-generated report ID when that option is enabled
+## Report section reference
 
-## Fast Runtime Flow
+![Report section](Images/03-report-section.png)
 
-1. Add `UDiscordOpsRuntimeReportWidget` to your HUD or create an instance from your `PlayerController`.
-2. Run the game.
-3. Press `Validate Setup` or `Live Validate`.
-4. Press `Send Demo Report`.
+## Expected result
 
-## Recommended Blueprint Usage
+Discord should receive a compact report that can include:
 
-- Use `Build Template Report Request` to start from `Crash`, `Gameplay Bug`, `Visual Bug`, `Performance`, `QA Pass`, or `QA Fail`.
-- Use `DestinationPreset` to route to `QA`, `Bugs`, `Community Support`, or `Internal Testing`.
-- Use `CustomFields` for ticket number, branch, tester, or hardware details.
-- Enable `bCreateThread` only when `bot mode` is configured.
+- title and description
+- category and severity from the selected template
+- report ID
+- optional screenshot attachment
+- optional recent log snippet
+- optional reference link preview
 
-## Important Screenshot Note
+## Custom destination flow
 
-- In `Editor-Cmd` or any context without a viewport, the report is sent with a warning and no image.
-- In `PIE`, `Standalone`, or `packaged runtime`, the screenshot can be attached for real when a `GameViewport` exists.
+If you want a dedicated custom route:
+
+1. Enter a name in `New Destination > Label`
+2. Click `Save Destination`
+3. Select that destination in `Route Setup`
+4. Paste its webhook in `Local Webhook Override`
+5. Click `Save Local Webhook`
+
+Important:
+
+- custom destinations do not fall back to the default route when they have no webhook
+- `Validate Setup` should pass before sending
+
+## Runtime note
+
+Runtime reporting support exists, but the fastest onboarding flow is the editor panel. Validate the route there first, then use runtime widgets or Blueprint flows when your route is already confirmed.
