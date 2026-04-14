@@ -522,6 +522,17 @@ button {
   color: #8ee8da;
 }
 
+.doc-body img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem 0 1.35rem;
+  border: 1px solid rgba(194, 210, 226, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+}
+
 .message-box {
   padding: 16px;
   border-radius: 16px;

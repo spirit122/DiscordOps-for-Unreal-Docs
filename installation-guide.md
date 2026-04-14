@@ -20,17 +20,6 @@ If you are using the marketplace release:
 5. Enable the plugin if it is not already enabled.
 6. Restart the editor if Unreal asks for it.
 
-If you are installing from source instead:
-
-1. Close Unreal Editor.
-2. Copy the plugin folder into `YourProject/Plugins/DiscordOps`.
-3. Open the `.uproject`.
-4. If Unreal asks to compile the plugin, allow the build to complete.
-
-After the plugin loads, verify that you can open:
-
-- `Window > DiscordOps`
-
 ## 2. Open the DiscordOps panel
 
 Open the panel from:
@@ -110,3 +99,31 @@ When the route is ready:
 - Do not commit real `Webhook URL`, `Bot Token`, or sensitive channel IDs
 - use local overrides or non-tracked local config for private credentials
 - clear personal webhooks before packaging a release build or Fab upload
+
+## Visual walkthrough
+
+This short sequence shows the plugin flow from the panel to the final Discord delivery.
+
+### 1. Main plugin panel
+
+The main window keeps the workflow compact: choose a destination, manage custom routes, and prepare the report from a single panel.
+
+![DiscordOps main panel](Images/01-plugin-overview.png)
+
+### 2. Report section
+
+The `Report` area is where you choose a template, write the title and description, attach a reference link, and optionally include a screenshot or log before sending.
+
+![DiscordOps report section](Images/02-report-section.png)
+
+### 3. Webhook creation and route setup
+
+Create the Discord webhook in the target channel, copy its URL, then paste it into `Local Webhook Override` inside `Route Setup` and save it for the selected destination.
+
+![Discord webhook creation and DiscordOps route setup](Images/03-webhook-route-setup.png)
+
+### 4. Delivery in Discord
+
+After sending, the report arrives in Discord as a compact message with the key context, and can include attachments such as the screenshot and the recent log snippet.
+
+![DiscordOps report delivered to Discord](Images/04-discord-delivery.png)
