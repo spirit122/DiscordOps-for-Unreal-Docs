@@ -12,73 +12,55 @@ marked.setOptions({
 
 const docsManifest = [
   {
-    id: "quick-start",
-    label: "Quick Start",
-    summary: "Create a webhook, save it in Route Setup, validate the route, and send your first real Discord report.",
-    file: "quick-start-webhook.md"
-  },
-  {
     id: "installation",
     label: "Installation",
-    summary: "Install from Fab or source, open Window > DiscordOps, and configure your first destination with visual steps.",
+    summary: "Install from Fab or source, enable the plugin, and open DiscordOps in Unreal.",
     file: "installation-guide.md"
+  },
+  {
+    id: "usage",
+    label: "Usage",
+    summary: "Configure a route, validate it, and send a focused report with the compact panel workflow.",
+    file: "quick-start-webhook.md"
   },
   {
     id: "settings",
     label: "Settings",
     summary: "Only the settings that matter most for setup, route validation, and everyday reporting.",
     file: "settings-reference.md"
-  },
-  {
-    id: "blueprint",
-    label: "Blueprint Workflow",
-    summary: "Recommended reporting flows and the public node surface.",
-    file: "blueprint-workflow.md"
-  },
-  {
-    id: "troubleshooting",
-    label: "Troubleshooting",
-    summary: "Fix common validation, permissions, screenshot, and routing issues.",
-    file: "troubleshooting.md"
-  },
-  {
-    id: "validation",
-    label: "Validation",
-    summary: "Use the launch checklist and validation matrix before publishing.",
-    file: "validation-checklist.md"
   }
 ];
 
 const summaryCards = [
   {
-    title: "Visual setup",
-    body: "The install guide now shows the real first-use flow with screenshots for Route Setup, report fields, and a sent Discord example."
+    title: "Installation first",
+    body: "Keep the setup path simple: install the plugin, enable it, and open the panel in Unreal."
   },
   {
-    title: "Cleaner onboarding",
-    body: "The docs focus on the compact panel workflow: save a local webhook, validate the selected route, then send a focused report."
+    title: "Usage that matters",
+    body: "The usage guide is centered on the compact workflow: route setup, validation, report fields, and custom destinations."
   },
   {
-    title: "Public docs only",
-    body: "This site stays shareable while the actual plugin code remains private and protected."
+    title: "Essential settings only",
+    body: "Settings Reference now keeps only the options most teams need for setup and daily reporting."
   }
 ];
 
 const routeSteps = [
   {
-    step: "Start",
-    title: "Quick Start",
-    body: "Use this if you want a fast proof that DiscordOps is working with the current panel and webhook flow."
+    step: "1",
+    title: "Installation",
+    body: "Start by installing the plugin and confirming that Window > DiscordOps is available."
   },
   {
-    step: "Build",
-    title: "Installation + Settings",
-    body: "Go deeper when you need the full setup path, custom destinations, and route behavior details."
+    step: "2",
+    title: "Usage",
+    body: "Configure the route, validate it, and send your first report with the compact panel."
   },
   {
-    step: "Launch",
-    title: "Validation + Troubleshooting",
-    body: "Use these sections before a Fab submission, a QA handoff, or a wider internal rollout."
+    step: "3",
+    title: "Settings",
+    body: "Keep only the important settings in mind once the base workflow is already working."
   }
 ];
 
@@ -172,21 +154,21 @@ function HeroSection() {
     <section id="overview" className="hero">
       <span className="hero__eyebrow">DiscordOps Documentation</span>
       <h1>
-        Cleaner docs for a faster
-        <span>Discord QA workflow.</span>
+        DiscordOps docs
+        <span>focused on what matters.</span>
       </h1>
       <p className="hero__lead">
-        Use this site to install DiscordOps, validate your Discord setup, and build a reporting flow that works cleanly inside Unreal.
+        Use this site to install DiscordOps, understand the compact panel workflow, and keep only the settings that matter for real usage.
       </p>
       <div className="hero__actions">
-        <a className="button button--primary" href="#quick-start">Open Quick Start</a>
-        <a className="button button--ghost" href="#validation">See launch checks</a>
+        <a className="button button--primary" href="#installation">Open Installation</a>
+        <a className="button button--ghost" href="#usage">Open Usage</a>
       </div>
       <div className="hero__tags">
-        <span>Editor + Runtime</span>
-        <span>Webhook-first</span>
-        <span>Blueprint-first</span>
-        <span>QA workflow</span>
+        <span>Installation</span>
+        <span>Usage</span>
+        <span>Essential settings</span>
+        <span>Compact workflow</span>
       </div>
     </section>
   `;

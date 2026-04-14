@@ -1,6 +1,6 @@
 # Installation Guide
 
-This guide shows the current DiscordOps installation and first-time setup flow using the compact editor panel and Discord webhooks.
+This guide keeps only the essential installation path for DiscordOps.
 
 ## Validated release target
 
@@ -39,16 +39,11 @@ Open the panel from:
 Window > DiscordOps
 ```
 
-The current UI is split into three parts:
+The current UI is split into three main parts:
 
 - `Route Setup`
 - `New Destination`
 - `Report`
-
-<figure>
-  <img src="Images/01-discordops-panel-overview.png" alt="DiscordOps panel overview in Unreal Editor" />
-  <figcaption>The compact panel keeps setup, destination management, and reporting in one place.</figcaption>
-</figure>
 
 ## 3. Create a Discord webhook
 
@@ -59,13 +54,6 @@ Channel Settings > Integrations > Webhooks
 ```
 
 Create a webhook for the channel that should receive the reports, then copy the webhook URL.
-
-The screenshot below shows the webhook page in Discord and the matching route setup flow in DiscordOps.
-
-<figure>
-  <img src="Images/02-webhook-creation-and-route-setup.png" alt="Discord webhook creation in Discord and matching Route Setup flow in DiscordOps" />
-  <figcaption>Create the webhook in Discord, then paste that URL into <code>Local Webhook Override</code> inside Route Setup.</figcaption>
-</figure>
 
 ## 4. Save the webhook in DiscordOps
 
@@ -111,17 +99,6 @@ Use the `Report` section to prepare the message:
 - `Video / Reference Link`
 - `Attach editor screenshot on send`
 - `Attach log`
-
-<div class="doc-gallery">
-  <figure>
-    <img src="Images/03-report-section.png" alt="DiscordOps report section with template, title, description, link, screenshot and log options" />
-    <figcaption>Fill only the essentials: template, title, description, optional link, and optional attachments.</figcaption>
-  </figure>
-  <figure>
-    <img src="Images/04-sent-crash-report-example.png" alt="Crash report sent from DiscordOps and displayed in Discord with screenshot and log attachment" />
-    <figcaption>The final Discord message stays compact while still carrying the screenshot and recent log snippet.</figcaption>
-  </figure>
-</div>
 
 When the route is ready:
 
